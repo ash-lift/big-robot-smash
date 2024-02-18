@@ -1,0 +1,21 @@
+---
+title: Latest Posts
+layout: layout.html
+---
+
+<ul class="latest_posts">
+  {% for component in collections.post reversed %}
+  <li>
+    <article class="post_summary">
+      <figure class="post_summary__image">
+        <a href="{{ component.url }}"><img src="assets/images/{{ component.data.img }}" alt=""></a>
+      </figure>
+      <div class="post_summary__text">
+        <time class="date" datetime="{{ component.data.date }}">{{ component.data.date | postDate }}</time>
+        <h2 class="title"><a href="{{ component.url }}">{{ component.data.title }}</a></h2>
+      </div>
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+
