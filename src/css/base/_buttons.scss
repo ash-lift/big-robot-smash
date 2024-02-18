@@ -1,0 +1,20 @@
+button {
+  font-family: var(--sans);
+  font-size: 1rem;
+  appearance: none;
+  border: 0;
+  background-color: var(--neutrals-bg-3);
+  border: 1px solid var(--neutrals-bg-3);
+  color: var(--neutrals-text-default);
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  transition: ease 0.25s all;
+}
+
+button:hover,
+button:focus {
+  outline: none;
+  background-color: var(--neutrals-bg-4);
+  border-color: var(--neutrals-bg-4);
+}

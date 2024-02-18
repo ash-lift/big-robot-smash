@@ -1,0 +1,30 @@
+svg {
+  fill: var(--neutrals-text-default);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+figure {
+  position: relative;
+  margin-block-start: 1rem;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: hsl(0, 0%, 100%);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.75rem;
+    max-width: calc(100% - 0.5rem);
+    box-sizing: border-box;
+  }
+
+}

@@ -1,0 +1,48 @@
+<html lang="en">
+<head data-theme="light">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Robot Smash | {{ title }}</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="https://use.typekit.net/trq2rdo.css">
+  <link rel="stylesheet" href="{{ '/css/light.css' | url }}" />
+  <link rel="stylesheet" href="{{ '/css/dark.css' | url }}" />
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
+  <script src="{{ '/scripts/colour-theme.js' | url }}"></script>
+</head>
+<body>
+  <div class="layout">
+    <header class="layout__header">
+      <h1><a href="/">Big Robot Smash<em>.</em></a></h1>
+      <nav>
+        <ul>
+          <li class="{% if title == 'Latest Posts' %}active{% endif %}">
+            <a href="/">
+              Latest Posts
+            </a>
+          </li>
+          <li class="{% if title == 'About' %}active{% endif %}">
+            <a href="/about">
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="layout__main">
+      <h1>{{ title }}</h1>
+      {{ content }}
+    </main>
+    <footer class="doc_layout__footer">
+      <ul>
+        <li>&copy; Ash Smith 2024</li>
+        <li><button type="button" data-theme-toggle aria-label="Change to light theme">Change to light theme</button></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
