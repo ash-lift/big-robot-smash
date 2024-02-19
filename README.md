@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9da5a99d-4716-470a-8ce8-cd32284379d9/deploy-status)](https://app.netlify.com/sites/bigrobotsmash/deploys)
+
 # Big Robot Smash
 
 Personal Blog. ⚡ by [11ty](https://www.11ty.dev/).
