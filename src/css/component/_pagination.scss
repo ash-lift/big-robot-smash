@@ -1,0 +1,25 @@
+.pagination {
+  margin-block-start: 2rem;
+
+  ol {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  li span {
+    color: var(--neutrals-text-disabled);
+  }
+
+  li a {
+    color: var(--neutrals-text-default);
+    text-decoration: none;
+  }
+
+  li a:hover,
+  li a:focus {
+    color: var(--accent-color);
+  }
+
+}

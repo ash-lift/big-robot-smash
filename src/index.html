@@ -1,21 +1,39 @@
 ---
 title: Latest Posts
 layout: layout.html
+pagination:
+  data: collections.post
+  size: 10
+  alias: posts
+  reverse: true
 ---
 
-<ul class="latest_posts">
-  {% for component in collections.post reversed %}
-  <li>
+<div class="latest_posts">
+  {% for post in posts %}
     <article class="post_summary">
       <figure class="post_summary__image">
-        <a href="{{ component.url }}"><img src="assets/images/{{ component.data.img }}" alt=""></a>
+        <a aria-label="Read more about {{ post.data.title }}" href="{{ post.url }}"><img src="/assets/images/{{ post.data.img }}" alt=""></a>
       </figure>
       <div class="post_summary__text">
-        <time class="date" datetime="{{ component.data.date }}">{{ component.data.date | postDate }}</time>
-        <h2 class="title"><a href="{{ component.url }}">{{ component.data.title }}</a></h2>
+        <time class="date" datetime="{{ post.data.date }}">{{ post.data.date | postDate }}</time>
+        <h2 class="title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <ul>
+          {% for tag in post.data.tags | filterTagList %}
+            {% if tag != "post" %}
+              <li><a href="/tags/{{ tag | slugify }}" class="post-tag">{{ tag }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
       </div>
     </article>
-  </li>
   {% endfor %}
-</ul>
+</div>
 
+{% if collections.post.size > pagination.size %}
+<nav class="pagination">
+  <ol>
+    <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}<span>Previous</span>{% endif %}</li>
+    <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}<span>Next</span>{% endif %}</li>
+  </ol>
+</nav>
+{% endif %}

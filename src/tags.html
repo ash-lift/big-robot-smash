@@ -1,0 +1,46 @@
+---
+layout: layout.html
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag | slugify }}/
+---
+
+<h1>Tagged “{{ tag }}”</h1>
+
+<div class="latest_posts">
+  {% for post in collections[ tag ] %}
+    <article class="post_summary">
+      <figure class="post_summary__image">
+        <a href="{{ post.url }}"><img src="/assets/images/{{ post.data.img }}" alt=""></a>
+      </figure>
+      <div class="post_summary__text">
+        <time class="date" datetime="{{ post.data.date }}">{{ post.data.date | postDate }}</time>
+        <h2 class="title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <ul>
+          {% for tag in post.data.tags | filterTagList %}
+            {% if tag != "post" %}
+              <li><a href="/tags/{{ tag | slugify }}" class="post-tag">{{ tag }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+<nav class="breadcrumb">
+  <ol itemscope="" itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/" title="Back to home page">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1">
+    </li>
+    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ tag }}</span>
+      <meta itemprop="position" content="3">
+    </li>
+  </ol>
+</nav>

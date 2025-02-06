@@ -13,14 +13,20 @@
     margin-inline: auto;
     padding: 4rem;
     gap: 4rem;
+    align-items: start;
   }
 
 }
 
 .layout__header {
 
+  @include media('>920px') {
+    position: sticky;
+    top: 4rem;
+  }
+
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   h1 em {
@@ -39,6 +45,19 @@
 
   ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    @include media('>920px') {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+  }
+
+  li {
+    margin: 0;
   }
 
   li a {
@@ -56,11 +75,11 @@
 
 }
 
-.doc_layout__main {
+.layout__main {
 
 }
 
-.doc_layout__footer {
+.layout__footer {
 
   @include media('>920px') {
     grid-column: span 2;
@@ -78,6 +97,15 @@
 
   li {
     margin: 0;
+  }
+
+  li a {
+    text-decoration: none;
+  }
+
+  li a:hover,
+  li a:focus {
+    color: var(--accent-color);
   }
 
   button {

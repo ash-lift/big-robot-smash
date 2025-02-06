@@ -1,0 +1,33 @@
+---
+layout: layout.html
+---
+
+<header class="post_header">
+  <h1>{{ title }}</h1>
+  <ul>
+    {% for tag in tags | filterTagList %}
+      {% if tag != "post" %}
+        <li><a href="/tags/{{ tag | slugify }}" class="post-tag">{{ tag }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</header>
+
+<div class="post_content">
+  {{ content }}
+</div>
+
+<nav class="breadcrumb">
+  <ol itemscope="" itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/" title="Back to home page">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1">
+    </li>
+    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ title }}</span>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
+</nav>
